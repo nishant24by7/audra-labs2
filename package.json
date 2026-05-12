@@ -1,0 +1,35 @@
+{
+  "name": "audra-labs",
+  "version": "1.0.0",
+  "description": "Forensic Image Authenticity Analyzer powered by Claude Vision AI",
+  "author": "Audra Labs Team",
+  "license": "MIT",
+  "homepage": "https://audra-labs.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heygaurav1/Audra-Labs"
+  },
+  "keywords": [
+    "deepfake",
+    "forensic",
+    "image-analysis",
+    "ai-detection",
+    "security",
+    "authenticity"
+  ],
+  "scripts": {
+    "dev": "python backend/api.py",
+    "prod": "gunicorn -w 4 -b 0.0.0.0:5000 backend.api:app",
+    "docker-build": "docker build -t audra-labs .",
+    "docker-run": "docker run -p 5000:5000 -e ANTHROPIC_API_KEY=$ANTHROPIC_API_KEY audra-labs",
+    "test": "pytest backend/tests/ -v",
+    "lint": "flake8 backend/",
+    "format": "black backend/",
+    "security": "bandit -r backend/",
+    "install-deps": "pip install -r backend/requirements.txt"
+  },
+  "engines": {
+    "node": "24.x",
+    "python": "3.11"
+  }
+}
